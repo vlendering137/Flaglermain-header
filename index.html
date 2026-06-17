@@ -225,63 +225,65 @@
   <nav class="mobile-overlay" id="mobileOverlay"></nav>
 
   <script>
-    /* =========================
-       EASY EDIT SECTION
-       ========================= */
+    document.addEventListener('DOMContentLoaded', function() {
+      /* =========================
+         EASY EDIT SECTION
+         ========================= */
 
-    const logoUrl = "https://uc8940ab5a86dbebc8712957fb23.previews.dropboxusercontent.com/p/thumb/ADDbAkrfirm49rU33HmE55oYNVF5aYSQbSkuT-VfXYMPMhFDLMReXnGb0FeFd4SNcHjehxDHvW1abCRmrzK8OiYdgyhJnmr3w0LfZ_u40aLTiASFhXrjhgfPdHCo5FWYGx5Astkk8PBE7T4_e0lZOVMJi-LYPx4BerHKDFmIMaeyfv0_Oi9ZR8osiU8a3LfTaa-p286_8zaa7Y3JjQdN71pEkw-pMA1-1cLBnhXnIQI9yw-S1nutUayxCtjoJnSO0Y_9yOzUxy8IzBb7E1vd1psFcHfvQGKosaqmSha-FGXfw_1aOIDTh1egrT0GvCXpk_g5xUnApxsLCgZGqevSt7AtIOWv8StnqsFxEK201op339RrNpwrAhGzbjHcULTN9-Y/p.png?is_prewarmed=true";
+      const logoUrl = "https://uc8940ab5a86dbebc8712957fb23.previews.dropboxusercontent.com/p/thumb/ADDbAkrfirm49rU33HmE55oYNVF5aYSQbSkuT-VfXYMPMhFDLMReXnGb0FeFd4SNcHjehxDHvW1abCRmrzK8OiYdgyhJnmr3w0LfZ_u40aLTiASFhXrjhgfPdHCo5FWYGx5Astkk8PBE7T4_e0lZOVMJi-LYPx4BerHKDFmIMaeyfv0_Oi9ZR8osiU8a3LfTaa-p286_8zaa7Y3JjQdN71pEkw-pMA1-1cLBnhXnIQI9yw-S1nutUayxCtjoJnSO0Y_9yOzUxy8IzBb7E1vd1psFcHfvQGKosaqmSha-FGXfw_1aOIDTh1egrT0GvCXpk_g5xUnApxsLCgZGqevSt7AtIOWv8StnqsFxEK201op339RrNpwrAhGzbjHcULTN9-Y/p.png?is_prewarmed=true";
 
-    const logoLink = "https://www.flagler.edu";
+      const logoLink = "https://www.flagler.edu";
 
-    const menuItems = [
-      { label: "Visit", url: "https://www.flagler.edu/admissions-aid/visit" },
-      { label: "Apply", url: "https://www.flagler.edu/apply" },
-      { label: "Academics", url: "https://www.flagler.edu/academics" },
-      { label: "About", url: "https://www.flagler.edu/about" },
-      { label: "Athletics", url: "https://flaglerathletics.com" }
-    ];
+      const menuItems = [
+        { label: "Visit", url: "https://www.flagler.edu/admissions-aid/visit" },
+        { label: "Apply", url: "https://www.flagler.edu/apply" },
+        { label: "Academics", url: "https://www.flagler.edu/academics" },
+        { label: "About", url: "https://www.flagler.edu/about" },
+        { label: "Athletics", url: "https://flaglerathletics.com" }
+      ];
 
-    const mainButton = {
-      label: "FLAGLER.EDU »",
-      url: "https://www.flagler.edu"
-    };
+      const mainButton = {
+        label: "FLAGLER.EDU »",
+        url: "https://www.flagler.edu"
+      };
 
-    /* =========================
-       BUILD NAV
-       ========================= */
+      /* =========================
+         BUILD NAV
+         ========================= */
 
-    const desktopMenu = document.getElementById("desktopMenu");
-    const mobileOverlay = document.getElementById("mobileOverlay");
-    const mobileToggle = document.getElementById("mobileToggle");
+      const desktopMenu = document.getElementById("desktopMenu");
+      const mobileOverlay = document.getElementById("mobileOverlay");
+      const mobileToggle = document.getElementById("mobileToggle");
 
-    document.getElementById("logoImg").src = logoUrl;
-    document.getElementById("logoLink").href = logoLink;
+      document.getElementById("logoImg").src = logoUrl;
+      document.getElementById("logoLink").href = logoLink;
 
-    const button = document.getElementById("mainButton");
-    button.textContent = mainButton.label;
-    button.href = mainButton.url;
-    button.target = "_blank";
-    button.rel = "noopener noreferrer";
+      const button = document.getElementById("mainButton");
+      button.textContent = mainButton.label;
+      button.href = mainButton.url;
+      button.target = "_blank";
+      button.rel = "noopener noreferrer";
 
-    menuItems.forEach(item => {
-      const desktopLink = document.createElement("a");
-      desktopLink.href = item.url;
-      desktopLink.textContent = item.label;
-      desktopLink.target = "_blank";
-      desktopLink.rel = "noopener noreferrer";
-      desktopMenu.appendChild(desktopLink);
+      menuItems.forEach(item => {
+        const desktopLink = document.createElement("a");
+        desktopLink.href = item.url;
+        desktopLink.textContent = item.label;
+        desktopLink.target = "_blank";
+        desktopLink.rel = "noopener noreferrer";
+        desktopMenu.appendChild(desktopLink);
 
-      const mobileLink = document.createElement("a");
-      mobileLink.href = item.url;
-      mobileLink.textContent = item.label;
-      mobileLink.target = "_blank";
-      mobileLink.rel = "noopener noreferrer";
-      mobileOverlay.appendChild(mobileLink);
-    });
+        const mobileLink = document.createElement("a");
+        mobileLink.href = item.url;
+        mobileLink.textContent = item.label;
+        mobileLink.target = "_blank";
+        mobileLink.rel = "noopener noreferrer";
+        mobileOverlay.appendChild(mobileLink);
+      });
 
-    mobileToggle.addEventListener("click", () => {
-      mobileOverlay.classList.toggle("open");
-      mobileToggle.textContent = mobileOverlay.classList.contains("open") ? "×" : "☰";
+      mobileToggle.addEventListener("click", () => {
+        mobileOverlay.classList.toggle("open");
+        mobileToggle.textContent = mobileOverlay.classList.contains("open") ? "×" : "☰";
+      });
     });
   </script>
 
